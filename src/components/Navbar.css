@@ -1,0 +1,26 @@
+.primary-color-wrapper {
+    border-radius: 50%;
+    block-size: 1.5rem;
+    inline-size: 1.5rem;
+    margin: 2px;
+}
+
+#red {
+    background-color:#cd5c5c;
+}
+
+#purple {
+    background-color:#dda0dd;
+}
+
+#blue {
+    background-color:#6495ed;
+}
+
+#green {
+    background-color: #3cb371;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}

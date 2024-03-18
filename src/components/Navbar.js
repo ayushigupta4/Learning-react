@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './Navbar.css';
 
 
 export default function Navbar(props) {
@@ -22,7 +23,12 @@ export default function Navbar(props) {
               
             </ul>
 
-            <div className={`form-check form-switch text-${props.mode==='light'?'dark':'light'}`}>
+            <div className="primary-color-wrapper cursor-pointer" id='red'></div>
+            <div className="primary-color-wrapper cursor-pointer" id='green'></div>
+            <div className="primary-color-wrapper cursor-pointer" id='purple'></div>
+            <div className="primary-color-wrapper cursor-pointer" id='blue'></div>
+
+            <div className={`form-check form-switch text-${props.mode==='light'?'dark':'light'} mx-3`}>
               <input className="form-check-input" onClick={props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
               <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Dark Mode</label>
             </div>

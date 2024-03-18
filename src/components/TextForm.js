@@ -7,16 +7,19 @@ export default function TextForm(props) {
     const handleUpClick = () => {
         let newText = text.toUpperCase();
         setText(newText);
+        props.showAlert("Converted to uppercase", "primary");
     }
 
     const handleLoClick = () => {
         let newText = text.toLowerCase();
         setText(newText);
+        props.showAlert("Converted to lowercase", "primary");
     }
 
     const clearText = () => {
         let newText = "";
         setText(newText);
+        props.showAlert("Text cleared", "warning");
     }
 
     const textToSpeech = () => {
@@ -30,12 +33,31 @@ export default function TextForm(props) {
             speech.text = chunk;
             window.speechSynthesis.speak(speech);
         });
+
+        props.showAlert("Listening to text", "primary");
         
     }
 
     const removeExtraSpaces = () => {
         let newText = text.split(/[ ]+/);
         setText(newText.join(" "));
+
+        props.showAlert("Extra spaces removed!", "primary");
+    }
+
+    const handleCopy = () => {
+        var text = document.getElementById("myBox");
+        text.select();
+        text.setSelectionRange(0,9999);
+        navigator.clipboard.writeText(text.value);
+        props.showAlert("Copied to clipboard!", "success");
+    }
+
+    const countWords = (text) => {
+        text = text.trim();
+        let words = text.split(/\s+/);
+        return text === ""? 0: words.length;
+        
     }
 
     const handleOnChange = (event) => {
@@ -57,11 +79,12 @@ export default function TextForm(props) {
                 <button className="btn btn-success mx-2" onClick={clearText}>Clear Text</button>
                 <button className="btn btn-success mx-2" onClick={textToSpeech}>Listen</button>
                 <button className="btn btn-success mx-2" onClick={removeExtraSpaces}>Remove extra spaces</button>
+                <button className="btn btn-success mx-2" onClick={handleCopy}>Copy Text</button>
             </div>
             <div className="container my-3" style={{color: props.mode==='dark'?'white':'black'}}>
                 <h2>Your text summary</h2>
-                <p>{text.split(" ").length} words and {text.length} characters</p>
-                <p>{0.008 * text.split(" ").length} minutes read</p>
+                <p>{countWords(text)} words and {text.length} characters</p>
+                <p>{0.008 *countWords(text)} minutes read</p>
                 <h2>Preview</h2>
                 <p>{text.length>0?text:"Enter something in textbox to preview"}</p>
             </div>
