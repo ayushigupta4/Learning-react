@@ -47,12 +47,12 @@ function App() {
       setMode('dark');
       document.body.style.backgroundColor = '#454545';
       showAlert("Dark mode has been enabled", "success");
-      //document.title = 'TextUtils - Dark Mode';
+      //document.title = 'Texter - Dark Mode';
       // setInterval(() => {
-      //   document.title = 'Intall TextUtils Now';
+      //   document.title = 'Intall Texter Now';
       // }, 2000);
       // setInterval(() => {
-      //   document.title = 'TextUtils';
+      //   document.title = 'Texter';
       // }, 1500);
     }  
     else {
@@ -65,12 +65,12 @@ function App() {
   return (
     <>
       <BrowserRouter>
-      <Navbar title="TextUtils" home="Home" about="About Us" mode={mode} toggleMode={toggleMode} changeColorMode={changeColorMode}/>
+      <Navbar title="Texter" home="Home" about="About Us" mode={mode} toggleMode={toggleMode} changeColorMode={changeColorMode}/>
       <Alert alert={alert}/>
       <div className="container my-3">
           <Routes>
           <Route exact path='/about' element={<About mode={mode} />} />
-          <Route exact path='/' element={<TextForm showAlert={showAlert} heading="Try TextUtils - Word Counter, Character Counter, Listen" mode={mode} colorMode={colorMode} />} />
+          <Route exact path='/' element={<TextForm showAlert={showAlert} heading="Try Texter - Word Counter, Character Counter, Listen" mode={mode} colorMode={colorMode} />} />
           </Routes>
       </div>
 
