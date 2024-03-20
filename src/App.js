@@ -13,6 +13,23 @@ import {
 function App() {
   const [mode, setMode] = useState('light'); //Whether dark mode is enabled or not
   const [alert, setAlert] = useState(null);
+  const [colorMode, setColorMode] = useState('success');
+
+  const changeColorMode = (clr) => {
+    if(clr === 'success'){
+      setColorMode('success');
+    }
+    else if(clr === 'warning') {
+      setColorMode('warning');
+    }
+    else if(clr === 'info') {
+      setColorMode('info');
+    }
+    else if(clr === 'danger') {
+      setColorMode('danger');
+    }
+  }
+
 
   const showAlert = (message, type) => {
     setAlert({
@@ -23,6 +40,8 @@ function App() {
       setAlert(null);
     }, 1500);
   }
+
+
   const toggleMode = () => {
     if(mode === 'light') {
       setMode('dark');
@@ -46,12 +65,12 @@ function App() {
   return (
     <>
       <BrowserRouter>
-      <Navbar title="TextUtils" home="Home" about="About Us" mode={mode} toggleMode={toggleMode}/>
+      <Navbar title="TextUtils" home="Home" about="About Us" mode={mode} toggleMode={toggleMode} changeColorMode={changeColorMode}/>
       <Alert alert={alert}/>
       <div className="container my-3">
           <Routes>
           <Route exact path='/about' element={<About mode={mode} />} />
-          <Route exact path='/' element={<TextForm showAlert={showAlert} heading="Try TextUtils - Word Counter, Character Counter, Listen" mode={mode} />} />
+          <Route exact path='/' element={<TextForm showAlert={showAlert} heading="Try TextUtils - Word Counter, Character Counter, Listen" mode={mode} colorMode={colorMode} />} />
           </Routes>
       </div>
 

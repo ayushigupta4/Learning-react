@@ -1,4 +1,5 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
+import './Navbar.css';
 
 
 
@@ -76,12 +77,12 @@ export default function TextForm(props) {
                 <div className="mb-3">
                     <textarea className="form-control" value={text} onChange={handleOnChange} style={{backgroundColor: props.mode==='dark'?'#595959':'white',color: props.mode==='dark'?'white':'black'}} id="myBox" rows="8"></textarea>
                 </div>
-                <button disabled={text.length===0} className="btn btn-success mx-2 my-1" onClick={handleUpClick}>Convert to uppercase</button>
-                <button disabled={text.length===0} className="btn btn-success mx-2 my-1" onClick={handleLoClick}>Convert to lowercase</button>
-                <button disabled={text.length===0} className="btn btn-success mx-2 my-1" onClick={clearText}>Clear Text</button>
-                <button disabled={text.length===0} className="btn btn-success mx-2 my-1" onClick={textToSpeech}>Listen</button>
-                <button disabled={text.length===0} className="btn btn-success mx-2 my-1" onClick={removeExtraSpaces}>Remove extra spaces</button>
-                <button disabled={text.length===0} className="btn btn-success mx-2 my-1" onClick={handleCopy}>Copy Text</button>
+                <button disabled={text.length===0} className={`btn btn-${props.colorMode} mx-2 my-1`} onClick={handleUpClick}>Convert to uppercase</button>
+                <button disabled={text.length===0} className={`btn btn-${props.colorMode} mx-2 my-1`} onClick={handleLoClick}>Convert to lowercase</button>
+                <button disabled={text.length===0} className={`btn btn-${props.colorMode} mx-2 my-1`} onClick={clearText}>Clear Text</button>
+                <button disabled={text.length===0} className={`btn btn-${props.colorMode} mx-2 my-1`} onClick={textToSpeech}>Listen</button>
+                <button disabled={text.length===0} className={`btn btn-${props.colorMode} mx-2 my-1`} onClick={removeExtraSpaces}>Remove extra spaces</button>
+                <button disabled={text.length===0} className={`btn btn-${props.colorMode} mx-2 my-1`} onClick={handleCopy}>Copy Text</button>
             </div>
             <div className="container my-3" style={{color: props.mode==='dark'?'white':'black'}}>
                 <h2>Your text summary</h2>

@@ -5,22 +5,6 @@
     margin: 2px;
 }
 
-#red {
-    background-color:#cd5c5c;
-}
-
-#purple {
-    background-color:#dda0dd;
-}
-
-#blue {
-    background-color:#6495ed;
-}
-
-#green {
-    background-color: #3cb371;
-}
-
 .cursor-pointer {
     cursor: pointer;
 }

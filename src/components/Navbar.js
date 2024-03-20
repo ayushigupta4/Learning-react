@@ -24,20 +24,20 @@ export default function Navbar(props) {
               
             </ul>
 
-            <div className="primary-color-wrapper cursor-pointer" id='red'></div>
-            <div className="primary-color-wrapper cursor-pointer" id='green'></div>
-            <div className="primary-color-wrapper cursor-pointer" id='purple'></div>
-            <div className="primary-color-wrapper cursor-pointer" id='blue'></div>
+            <div className="primary-color-wrapper cursor-pointer bg-danger" onClick={() => (props.changeColorMode('danger'))}></div>
+            <div className="primary-color-wrapper cursor-pointer bg-success" onClick={() => (props.changeColorMode('success'))}></div>
+            <div className="primary-color-wrapper cursor-pointer bg-warning" onClick={() => (props.changeColorMode('warning'))}></div>
+            <div className="primary-color-wrapper cursor-pointer bg-info" onClick={() => (props.changeColorMode('info'))}></div>
 
             <div className={`form-check form-switch text-${props.mode==='light'?'dark':'light'} mx-3`}>
               <input className="form-check-input" onClick={props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
               <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Dark Mode</label>
             </div>
   
-            <form className="d-flex" role="search">
+            {/* <form className="d-flex" role="search">
               <input className="form-control me-2 mx-2" type="search" placeholder="Search" aria-label="Search"/>
               <button className="btn btn-success" type="submit">Search</button>
-            </form>
+            </form> */}
           </div>
         </div>
       </nav>
