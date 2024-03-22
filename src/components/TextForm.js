@@ -5,18 +5,26 @@ import './Navbar.css';
 
 export default function TextForm(props) {
 
-    const [voices, setVoices] = useState([]);
+  const [voices, setVoices] = useState([]);
   const [selectedVoice, setSelectedVoice] = useState('');
   const [audioUrl, setAudioUrl] = useState('');
 
   useEffect(() => {
-    fetchVoices();
+    window.speechSynthesis.addEventListener('voiceschanged', fetchVoices);
+    return () => {
+        window.speechSynthesis.removeEventListener('voiceschanged', fetchVoices);
+    };
+    //fetchVoices();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchVoices = () => {
     let voices = window.speechSynthesis.getVoices();
     setVoices(voices);
+
+    if(!selectedVoice && voices.length > 0) {
+        setSelectedVoice(voices[0].name);
+    }
   };
 
   const handleChange = (event) => {
